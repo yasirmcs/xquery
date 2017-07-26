@@ -20,6 +20,9 @@ func TestXPath(t *testing.T) {
 	if list := Find(doc, "//book[genre='Fantasy']"); len(list) != 2 {
 		t.Fatal("//book[genre='Fantasy'] items count is not equal 2")
 	}
+        if list := Find(doc, "//book[genre='Fantasy'][author='Corets, Eva']"); len(list) != 1 {
+                t.Fatal("//book[genre='Fantasy'][author='Corets, Eva'] items count is not equal 1")
+        }
 	var c int
 	FindEach(doc, "//book", func(i int, n *Node) {
 		c++
